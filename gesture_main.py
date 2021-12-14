@@ -142,7 +142,7 @@ while True:
             d = np.concatenate([joint.flatten(), angle_label])
             d = d.reshape(d.shape[0],1)
             d = np.expand_dims(d, axis=0)
-
+            d = np.array(d, dtype=np.float32)
             # Perform the actual detection by running the model with the input
             interpreter.set_tensor(input_details[0]['index'],d)
             interpreter.invoke()
